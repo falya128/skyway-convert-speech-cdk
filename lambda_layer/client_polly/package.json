@@ -1,0 +1,7 @@
+{
+  "name": "client_polly",
+  "version": "1.0.0",
+  "dependencies": {
+    "@aws-sdk/client-polly": "^3.370.0"
+  }
+}
