@@ -1,14 +1,44 @@
-# Welcome to your CDK TypeScript project
+# SkyWay Convert Speech CDK
 
-This is a blank project for CDK development with TypeScript.
+## 概要
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
+与えられた言葉を敬語の音声データに変換するための AWS CDK プロジェクトです。  
+敬語に変換する処理は ChatGPT、音声データに変換する処理は Amazon Polly を用いて実現しております。  
+全体的な構成についてはこちらのQiita記事をご参照ください。  
+https://qiita.com/falya128/items/8ae563059b5d024188ac
 
-## Useful commands
+また、本プロジェクトは別リポジトリの Vue プロジェクトと併せてご利用ください。  
+https://github.com/falya128/skyway-convert-speech
 
-* `npm run build`   compile typescript to js
-* `npm run watch`   watch for changes and compile
-* `npm run test`    perform the jest unit tests
-* `cdk deploy`      deploy this stack to your default AWS account/region
-* `cdk diff`        compare deployed stack with current state
-* `cdk synth`       emits the synthesized CloudFormation template
+## 開始手順
+
+### 各種ライブラリのインストール
+
+```powershell
+cd skyway-convert-speech-cdk
+npm install
+
+cd skyway-convert-speech-cdk/lambda_layer/openai
+npm install
+
+cd skyway-convert-speech-cdk/lambda_layer/client_polly
+npm install
+```
+
+### 環境設定
+
+```powershell
+cp .env.example .env
+```
+
+以下の箇所を変更
+
+```
+OPENAI_API_KEY=[OpenAI API の管理画面から取得したアクセスキー]
+```
+
+### デプロイ
+
+```powershell
+cdk deploy
+```
